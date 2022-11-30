@@ -42,17 +42,16 @@ namespace TestTask.Services.InstallmentPayment.Service
             {
                 if (product.MaxRange < ranges.FirstOrDefault(x => x == request.InstallmentRange))
                 {
-                    for (var i = 1; i < ranges.Count; i++)
+                    for (var i = 0; i < ranges.Count; i++)
                     {
                         totalAmount = ++totalAmount;
                         if(ranges[i] == product.MaxRange)
                         {
-                            for(var j = totalAmount + 1; j < ranges.Count; j++)
+                            for(var j = totalAmount; j < ranges.Count; j++)
                             {
                                 local = ++local;
                                 if(ranges[j] == request.InstallmentRange)
                                 {
-                                    Console.WriteLine(local);
                                     break;
                                 }
                             }
